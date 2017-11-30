@@ -39,7 +39,7 @@ int main()
 
     for (int j = 0; j < 2; ++j)
     {
-        for (int x = 0; x <= ArrSize[j]; ++x)
+        for (int x = 0; x < ArrSize[j]; ++x)
         {
             printf("Veuillez introduire l'élément numéro %i du tableau %c: ",
                                                           x + 1,        ArrLetter + j
@@ -55,6 +55,21 @@ int main()
                 a[ (ArrSize[0] + x ) ] = b[x];
             }// else
         }// for x
+    }// for j
+    for (int j = 0; j < 2; ++j)
+    {
+        printf("Le tableau %c contient: ",
+                                ArrLetter + j
+              );
+        int     x = 0;
+        while ( x < ( (j == 0) ? ArrSize[0] + ArrSize[1] : ArrSize[1] ) )
+        {
+            printf("%i,",
+                    (j == 0) ? a[x] : b[x]
+                  );
+            x++;
+        }// while
+        printf("\n");
     }// for j
     
     // Deallocate the memory for a[] and b[]
